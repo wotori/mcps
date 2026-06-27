@@ -40,19 +40,19 @@ const tools: Tool[] = [
   {
     name: "pinata_pin_file",
     description:
-      "Закрепить (запинить) локальный файл в IPFS через Pinata. Возвращает CID и публичную ссылку на gateway, которую можно использовать дальше.",
+      "Pin a local file to IPFS via Pinata. Returns the CID and a public gateway URL ready to use.",
     inputSchema: {
       type: "object",
       properties: {
         path: {
           type: "string",
           description:
-            "Абсолютный или относительный путь к файлу на диске, который нужно запинить.",
+            "Absolute or relative path to the file on disk to pin.",
         },
         name: {
           type: "string",
           description:
-            "Необязательное имя для метаданных Pinata. По умолчанию имя файла.",
+            "Optional name for Pinata metadata. Defaults to the file name.",
         },
       },
       required: ["path"],
@@ -61,16 +61,16 @@ const tools: Tool[] = [
   {
     name: "pinata_pin_json",
     description:
-      "Запинить произвольный JSON-объект в IPFS через Pinata. Возвращает CID и ссылку на gateway.",
+      "Pin an arbitrary JSON object to IPFS via Pinata. Returns the CID and a gateway URL.",
     inputSchema: {
       type: "object",
       properties: {
         content: {
-          description: "JSON-данные для пина (любой объект/массив/значение).",
+          description: "JSON data to pin (any object/array/value).",
         },
         name: {
           type: "string",
-          description: "Необязательное имя для метаданных Pinata.",
+          description: "Optional name for Pinata metadata.",
         },
       },
       required: ["content"],
@@ -78,13 +78,13 @@ const tools: Tool[] = [
   },
   {
     name: "pinata_unpin",
-    description: "Удалить пин по CID из Pinata.",
+    description: "Remove a pin from Pinata by CID.",
     inputSchema: {
       type: "object",
       properties: {
         cid: {
           type: "string",
-          description: "CID (IpfsHash) ранее запиненного объекта.",
+          description: "CID (IpfsHash) of a previously pinned object.",
         },
       },
       required: ["cid"],
@@ -93,13 +93,13 @@ const tools: Tool[] = [
   {
     name: "pinata_list",
     description:
-      "Получить список запиненных объектов (свежие сверху). Возвращает сырой JSON Pinata.",
+      "List pinned objects (most recent first). Returns raw Pinata JSON.",
     inputSchema: {
       type: "object",
       properties: {
         limit: {
           type: "number",
-          description: "Сколько записей вернуть (1–1000, по умолчанию 10).",
+          description: "How many records to return (1–1000, default 10).",
         },
       },
     },

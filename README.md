@@ -5,24 +5,24 @@ Each server lives in its own subdirectory with its own README, deps, and build.
 
 ## Servers
 
-| Server | Что делает | Папка |
-|--------|-----------|-------|
-| [pinata](./pinata) | Пин файлов и JSON в IPFS через Pinata, возврат CID + gateway-ссылки | `pinata/` |
+| Server | What it does | Folder |
+|--------|--------------|--------|
+| [pinata](./pinata) | Pin files and JSON to IPFS via Pinata, returns CID + gateway URL | `pinata/` |
 
-## Структура
+## Layout
 
 ```
 mcps/
-├── README.md          # этот файл
+├── README.md          # this file
 ├── .gitignore
-└── <server>/          # один MCP-сервер = одна папка
-    ├── README.md      # установка и использование
+└── <server>/          # one MCP server = one folder
+    ├── README.md      # install & usage
     ├── package.json
     ├── src/
-    └── dist/          # сборка (в .gitignore)
+    └── dist/          # build output (gitignored)
 ```
 
-## Добавить новый сервер
+## Add a new server
 
 ```sh
 mkdir ~/git/mcps/<name> && cd ~/git/mcps/<name>
@@ -31,5 +31,5 @@ npm install @modelcontextprotocol/sdk zod
 npm run build
 ```
 
-Ключи/секреты — только через переменные окружения, никогда в репозиторий.
-Каждый сервер описывает свою установку в собственном `README.md`.
+Keys/secrets go through environment variables only — never into the repo.
+Each server documents its own install in its `README.md`.
