@@ -1,0 +1,12 @@
+# deps & builds (per-server)
+node_modules/
+dist/
+
+# secrets
+.env
+.env.local
+*.pem
+
+# os / editor
+.DS_Store
+*.log
